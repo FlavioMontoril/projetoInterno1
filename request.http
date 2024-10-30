@@ -1,9 +1,10 @@
-POST http://localhost:4001/tarefas
-content-type: application/json
+POST http://localhost:4001/tarefas HTTP/1.1
+Content-Type: application/json
+Accept: application/json
 
 {
-    "titulo": "SangatiBerga",
-    "descricao": "DTD",
+    "titulo": "Valkure",
+    "descricao": "Desenvolvimento",
     "Date": "29/10/2024" 
 }
 
@@ -14,11 +15,14 @@ GET http://localhost:4001/tarefas
 GET http://localhost:4001/tarefas/3aed18e5-f7b7-4a6d-806f-636426989c73
 
 ###
-PUT  http://localhost:4001/tarefas/3ec3eee0-782c-4b2f-969e-e1179b5189e1
+PUT  http://localhost:4001/tarefas/bb5fd9eb-577e-4da9-8a61-465474f2d6e8
 content-type: application/json
 
 {
-    "titulo": "Berga",
-    "descricao": "DTD",
+    "titulo": "Sangati Berga",
+    "descricao": "Desenvolvimento",
     "Date": "29/10/2024" 
 }
+
+###
+DELETE http://localhost:4001/tarefas/6639ee80-5c34-4f8f-8606-d688aaffed86

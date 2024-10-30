@@ -11,9 +11,8 @@ app.post("/tarefas", (request, response) => {
     const body = request.body;
     
     const tarefa = {
-        ...request.body,
-        id:randomUUID()
-        
+        ...body,
+        id:randomUUID(),
     }
 
     tarefas.push(tarefa);
@@ -48,5 +47,17 @@ app.put("/tarefas/:id", (request, response) => {
         message: "Alterado com sucesso",
     })
 })
+
+app.delete("/tarefas/:id", (request, response) => {
+    const {id} = request.params;
+    const tarefa = tarefas.findIndex((tarefa) => tarefa.id === id);
+    tarefas.splice(tarefa, 1);
+
+    return response.json({
+        message: "Produto removido"
+    });
+
+
+});
 
 app.listen(4001, () => console.log("servidor roda na porta 4001"));
