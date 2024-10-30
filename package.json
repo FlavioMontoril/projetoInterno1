@@ -1,0 +1,16 @@
+{
+  "name": "projeto_interno",
+  "version": "1.0.0",
+  "description": "Projeto Interno 1",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "author": "Alan Maxwell",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7"
+  }
+}
