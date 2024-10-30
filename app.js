@@ -1,5 +1,6 @@
 const express = require("express");
 const {randomUUID} = require("crypto");
+const { error } = require("console");
 
 const app = express();
 
@@ -8,17 +9,29 @@ app.use(express.json());
 const tarefas = [];
 
 app.post("/tarefas", (request, response) => {
-    const body = request.body;
+
+    console.log(request.body);
+    const {titulo, descricao, criado_em} = request.body;
+
+    if(!titulo || !descricao || !criado_em){
+        return response.status(400).json({
+            error: "Não possui todas as propriedades necessárias"
+        });
+    }
     
     const tarefa = {
-        ...body,
+        titulo,
+        descricao,
+        criado_em,
         id:randomUUID(),
     }
+
 
     tarefas.push(tarefa);
 
     console.log(tarefa);
-    return response.json(tarefa);
+    
+    return response.status(201).json(tarefa);
 });
 
 app.get("/tarefas", (request, response) => {
@@ -33,17 +46,26 @@ app.get("/tarefas/:id", (request, response) => {
 });
 
 app.put("/tarefas/:id", (request, response) => {
+    console.log(request.body);
     const {id} = request.params;
-
-    const{titulo, descricao} = request.body;
+    const{titulo, descricao, criado_em} = request.body;
     const tarefaIndex = tarefas.findIndex((tarefaIndex) => tarefaIndex.id === id);
-    tarefas[tarefaIndex] = {
-        ...tarefas,
-        titulo,
-        descricao,
+
+    if(tarefaIndex === -1 ){
+        return response.status(400).json({
+            error: "ID não confere ou não existe"
+        });
     }
 
-    return response.json({
+    
+    tarefas[tarefaIndex] = {
+        ...tarefas[tarefaIndex],
+        titulo,
+        descricao,
+        criado_em,
+    }
+
+    return response.status(200).json({
         message: "Alterado com sucesso",
     })
 })

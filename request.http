@@ -3,26 +3,26 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "titulo": "Valkure",
-    "descricao": "Desenvolvimento",
-    "Date": "29/10/2024" 
+    "titulo": "SangatiBerga 6",
+    "descricao": "Densenvolvimento",
+    "criado_em": "2024-10-30T11:36:07.886Z" 
 }
 
 ###
 GET http://localhost:4001/tarefas
 
 ###
-GET http://localhost:4001/tarefas/3aed18e5-f7b7-4a6d-806f-636426989c73
+GET http://localhost:4001/tarefas/d2e4219b-a9e2-46a5-8dc6-b5e3a5cfa8dc
 
 ###
-PUT  http://localhost:4001/tarefas/bb5fd9eb-577e-4da9-8a61-465474f2d6e8
+PUT  http://localhost:4001/tarefas/svsfbfbf
 content-type: application/json
 
 {
-    "titulo": "Sangati Berga",
+    "titulo": "SangatiBerga 6.1",
     "descricao": "Desenvolvimento",
-    "Date": "29/10/2024" 
+    "criado_em": "2024-10-30T11:36:07.886Z" 
 }
 
 ###
-DELETE http://localhost:4001/tarefas/6639ee80-5c34-4f8f-8606-d688aaffed86
+DELETE http://localhost:4001/tarefas/74165aa9-1cc6-499c-84e7-fb1d82a8fbee
