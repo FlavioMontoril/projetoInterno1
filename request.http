@@ -3,9 +3,9 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "titulo": "SangatiBerga 6",
-    "descricao": "Densenvolvimento",
-    "criado_em": "2024-10-30T11:36:07.886Z" 
+    "titulo": "SangatiBerga",
+    "descricao": "Densenvolvimento"
+    
 }
 
 ###
@@ -15,13 +15,12 @@ GET http://localhost:4001/tarefas
 GET http://localhost:4001/tarefas/d2e4219b-a9e2-46a5-8dc6-b5e3a5cfa8dc
 
 ###
-PUT  http://localhost:4001/tarefas/svsfbfbf
+PUT  http://localhost:4001/tarefas/
 content-type: application/json
 
 {
     "titulo": "SangatiBerga 6.1",
-    "descricao": "Desenvolvimento",
-    "criado_em": "2024-10-30T11:36:07.886Z" 
+    "descricao": "Desenvolvimento"
 }
 
 ###

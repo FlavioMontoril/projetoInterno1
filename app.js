@@ -1,19 +1,22 @@
 const express = require("express");
 const {randomUUID} = require("crypto");
 const { error } = require("console");
-
+const cors  = require("cors");
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 const tarefas = [];
 
 app.post("/tarefas", (request, response) => {
 
-    console.log(request.body);
-    const {titulo, descricao, criado_em} = request.body;
+    console.log("aqui",request.body);
+    const {titulo, descricao} = request.body;
 
-    if(!titulo || !descricao || !criado_em){
+    const dataCriado = new Date().toISOString();
+
+    if(!titulo || !descricao){
         return response.status(400).json({
             error: "Não possui todas as propriedades necessárias"
         });
@@ -22,20 +25,22 @@ app.post("/tarefas", (request, response) => {
     const tarefa = {
         titulo,
         descricao,
-        criado_em,
+        criado_em: dataCriado,
+        status :'pendente',
         id:randomUUID(),
     }
 
 
     tarefas.push(tarefa);
 
-    console.log(tarefa);
     
-    return response.status(201).json(tarefa);
+    
+    return response.status(201).json(tarefa); 
 });
 
 app.get("/tarefas", (request, response) => {
-    return response.json(tarefas);
+    console.log("CHEGOU AQUI")
+    return response.json(tarefas.reverse());
 });
 
 app.get("/tarefas/:id", (request, response) => {
@@ -74,8 +79,9 @@ app.delete("/tarefas/:id", (request, response) => {
     const {id} = request.params;
     const tarefa = tarefas.findIndex((tarefa) => tarefa.id === id);
     tarefas.splice(tarefa, 1);
-
-    return response.json({
+    
+    console.log(tarefa)
+    return response.status(204).json({
         message: "Produto removido"
     });
 
