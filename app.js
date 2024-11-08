@@ -87,7 +87,7 @@ app.delete("/tarefas/:id", (request, response) => {
     
     
     tarefas.splice(tarefa, 1);
-    return response.status(201).json({
+    return response.status(204).json({
         message: "Produto removido"
     });
 
