@@ -4,7 +4,7 @@ Accept: application/json
 
 {
     "titulo": "SangatiBerga",
-    "descricao": "Densenvolvimento"
+    "descricao": "Desenvolvimento"
     
 }
 
@@ -15,12 +15,12 @@ GET http://localhost:4001/tarefas
 GET http://localhost:4001/tarefas/d2e4219b-a9e2-46a5-8dc6-b5e3a5cfa8dc
 
 ###
-PUT  http://localhost:4001/tarefas/
+PUT  http://localhost:4001/tarefas/8a055b8d-3184-47bc-9c1d-a9e650d682b7
 content-type: application/json
 
 {
-    "titulo": "SangatiBerga 6.1",
-    "descricao": "Desenvolvimento"
+    "titulo": "SB_TESTE",
+    "descricao": "Desenvolvimento 1"
 }
 
 ###
