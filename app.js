@@ -78,10 +78,16 @@ app.put("/tarefas/:id", (request, response) => {
 app.delete("/tarefas/:id", (request, response) => {
     const {id} = request.params;
     const tarefa = tarefas.findIndex((tarefa) => tarefa.id === id);
-    tarefas.splice(tarefa, 1);
+
+    if(tarefa === -1){
+        return response.status(404).json({
+            error: "O servidor não pode encontrar o recurso solicitado"
+        })
+    }
     
-    console.log(tarefa)
-    return response.status(204).json({
+    
+    tarefas.splice(tarefa, 1);
+    return response.status(201).json({
         message: "Produto removido"
     });
 
